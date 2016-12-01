@@ -1,0 +1,42 @@
+Pure alpha status
+
+  Currently awaits for dbus launch command and launches steam
+ 
+TODO:
+  
+  * Properly kill steam and all sub processes.
+  * Create UDP WOL listener for port 9 (super user daemon) which can lazy find
+    and connect to dbus, this might be hacky...?  Also the steam link polls udp
+    port 27036 for steam status, I might also be able to watch that.
+  * Create an http server for pushing commands over as well, to integrate with
+    various android http button apps.
+  * Create a command line interface for the steam_client.py to launch/stop/kill
+    etc
+
+FUTURE:    
+
+  * Create a pygame menu interface that controls the steam client from within
+    steam (launch it as a 'game') that way
+    
+BACKGROUND:
+
+I just recently got a steam link, and a steam controller for the most part they
+work great.  But steam on linux feels broken for any but the happy path.
+
+Launching steam games never seems to be on the happy path.
+ 
+I have a 1440p monitor dual system, but games don't always want to run properly
+on it.  Also some games don't work well with dual monitors under linux. I
+wanted a way to hit a button from either my phone or the steam link, that
+triggered my desktop to reconfigure via xrandr to a 1080p single head, and then
+launch steam.
+
+I figured there was already a system for doing the basic steam management
+launch/stop/kill  and there was not, so it made sense to create it.
+
+Using DBUS to do basic RPC I was able to hack this alpha 'test' in about an hour
+or so.
+
+I feel like such a tool is a necessary evil right now, and will help Linux
+gamers better manage their desktop PC's steam processes from the comfort of
+their couch.
